@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:bloc_pattern_mvp/src/assets/image_path.dart';
+import 'package:bloc_pattern_mvp/src/modules/course/course_screen.dart';
 import 'package:flutter/material.dart';
 
 class ProductHome extends StatefulWidget {
@@ -176,15 +177,23 @@ class _AnimatedExampleState extends State<AnimatedExample>
                     AnimatedBuilder(
                       animation: _containerSizeAnimation,
                       builder: (context, child) {
-                        return Container(
-                          width: _containerSizeAnimation.value,
-                          height: _containerSizeAnimation.value,
-                          decoration: BoxDecoration(
-                            color: Colors.blue,
-                            borderRadius: BorderRadius.circular(75),
-                             image: DecorationImage(
-                      image: AssetImage(ImageAsset.woman),
-                      fit: BoxFit.cover)
+                        return InkWell(
+                          onTap: (){
+                            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>  CoursePage()),
+            );
+                          },
+                          child: Container(
+                            width: _containerSizeAnimation.value,
+                            height: _containerSizeAnimation.value,
+                            decoration: BoxDecoration(
+                              color: Colors.blue,
+                              borderRadius: BorderRadius.circular(75),
+                               image: DecorationImage(
+                                                image: AssetImage(ImageAsset.woman),
+                                                fit: BoxFit.cover)
+                            ),
                           ),
                         );
                       },
